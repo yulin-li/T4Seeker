@@ -22,5 +22,5 @@ python extract_features.py —fastafile ./data/test.fasta
 ```
 ####Step 2:
 ```
-python T4SeekerPredict.py --fasta_test ./data/all_T4SE_test.csv --DR_test ./data/42_DR_test_data.csv --ESM_test ./data/42_ESM_features_test_data.csv
+python T4SeekerPredict.py --fasta_test test.csv --DR_test ./data/test_data.csv --ESM_test ./data/ESM_features_test_data.csv
 ```
