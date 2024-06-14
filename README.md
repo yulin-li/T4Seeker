@@ -1,7 +1,7 @@
 # T4Seeker
 This is for identifing type IV secretion effectors. This repository contains a deep learning model and prediction code for T4Seeker. Users can utilize T4Seeker to predict the amino acid sequence.
 
-![flowchart T4Seeker.](https://github.com/lijingtju/T4Seeker/blob/main/flowchat.png)
+![flowchart T4Seeker.](https://github.com/lijingtju/T4Seeker/blob/main/flowchart.png)
 
 ### Manual Start
 ```
