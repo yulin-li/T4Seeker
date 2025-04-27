@@ -12,7 +12,7 @@ from models.model import  T4Seeker
 class ProteinDataset(Dataset):
     def __init__(self, file, fileml, selected_feature_indices=None, kmers=1, max_len=1000):
         df = pd.read_csv(file)
-        df2 = pd.read_csv(fileml[0], dtype=np.float32).iloc[:, :-1]
+        df2 = pd.read_csv(fileml[0], dtype=np.float32).iloc[:, :]
         df3 = pd.read_csv(fileml[1], dtype=np.float32).iloc[:, :-1]
         if not selected_feature_indices:
             selected_feature_indices = np.load('models/selected_feature_indices.npy')
@@ -119,7 +119,7 @@ def main(args):
     model = T4Seeker()
     model.to(device)
 
-    checkpoint = torch.load('./models/model.pth')
+    checkpoint = torch.load('./models/model_gpu.pth', map_location=torch.device(device))
     model.load_state_dict(checkpoint['model_state_dict'])
 
     test_specificity, test_acc, test_auc, test_f1, test_recall, test_precision = evaluate_model(model, testdataloader, device, test=True)

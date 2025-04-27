@@ -126,10 +126,10 @@ def extract_sequences(fasta_file):
     return sequences
 
 def main(data_path, file_name):
-    #eactracting the DR features
+    #extracting the DR features
     fw = open(current_path+'/features_code/PseinOne2/command_protein.sh', 'w')
     fw.write(
-        'python '+current_path+'/features_code/PseinOne2/nac.py '+current_path+'/data/'+file_name+' Protein DR -out '+path_fea + file_name[:-6]+'_DR.txt\n'
+        'python2 '+current_path+'/features_code/PseinOne2/nac.py '+current_path+'/data/'+file_name+ ' '+path_fea + file_name[:-6]+'_DR.txt' + ' Protein DR ' + '\n'
         )
     fw.close()
     os.system("bash "+current_path+'/features_code/PseinOne2/command_protein.sh')
@@ -137,7 +137,7 @@ def main(data_path, file_name):
     txt_to_csv(path_fea + file_name[:-6] + '_DR.txt', path_fea + file_name[:-6] + '_DR.csv')
     print("DR is done ......")
 
-    # eactracting the ESM features and flatten
+    # extracting the ESM features and flatten
     sequences = read_fasta(data_path + file_name)
     write_pro_seq(sequences, current_path+'/data/'+file_name[:-6]+"_ESM_data.txt")
     extract_ESM_features(file_name[:-6]+"_ESM_data.txt", file_name[:-6]+"_ESM_features.txt")
@@ -158,8 +158,6 @@ if __name__ == '__main__':
                         help='fasta file needs including sequence')
     args = vars(parser.parse_args())
     fasta_file = args['fastafile']
-    output_file_DR = args['DR_test']
-    output_file_ESM = args['ESM_test']
     data_path = os.path.dirname(fasta_file) + "/"
     file_name = os.path.basename(fasta_file)
     main(data_path, file_name)
