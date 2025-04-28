@@ -4,6 +4,7 @@ This is for identifying type IV secretion effectors. This repository contains a 
 ![flowchart T4Seeker.](https://github.com/lijingtju/T4Seeker/blob/main/flowchart.png)
 
 ### Manual Start
+
 ```
 git clone https://github.com/yulin-li/T4Seeker.git
 cd T4Seeker
@@ -16,12 +17,15 @@ cd ..
 ```
 
 ### Commands to do prediction
-####Step 1:
-```
+#### Step 1:
+
+```sh
 python extract_features.py --fastafile ./data/test.fasta
 python to_csv.py
 ```
-####Step 2:
-```
+
+#### Step 2:
+
+```sh
 python T4SeekerPredict.py --fasta_test ./data/test.csv --DR_test ./features/test_DR.csv --ESM_test ./features/test_ESM_features.csv
 ```
