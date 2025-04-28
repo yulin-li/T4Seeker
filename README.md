@@ -8,7 +8,7 @@ This is for identifying type IV secretion effectors. This repository contains a 
 git clone https://github.com/yulin-li/T4Seeker.git
 cd T4Seeker
 pip install "torch<2.6" --index-url https://download.pytorch.org/whl/cpu
-pip install fair-esm
+pip install fair-esm scikit-learn
 mkdir features_code
 cd features_code
 git clone https://github.com/banshanren/Pse-in-One-2.0.git PseinOne2
